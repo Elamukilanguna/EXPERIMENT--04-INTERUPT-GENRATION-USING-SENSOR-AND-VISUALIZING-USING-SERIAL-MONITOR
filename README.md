@@ -118,14 +118,52 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
   
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include "stdio.h"
+
+#if defined (__ICCARM__) || defined (__ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#elif defined(__GNUC__)
+
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#endif
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+		if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4)==0)
+		{
+			printf("obstacle found\n");
+			HAL_Delay(500);
+		}
+		else
+		{
+			printf("obstacle not found\n");
+			HAL_Delay(500);
+		}
+}
+
+PUTCHAR_PROTOTYPE
+{
+
+  HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, 0xFFFF);
+
+  return ch;
+}
+```
 
 
 
 ## Output screen shots of serial port utility   :
+![Screenshot 2024-03-22 095619](https://github.com/Elamukilanguna/EXPERIMENT--04-INTERUPT-GENRATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR/assets/144870462/4ba01f25-84ba-43d6-8c9b-3c88aff0c0e7)
+
  
  
  ## Circuit board :
  
+ ![325529536-a662db57-e060-4eae-b7ff-2f832d748028](https://github.com/Elamukilanguna/EXPERIMENT--04-INTERUPT-GENRATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR/assets/144870462/55e6996e-db50-4815-870a-2a509baabc85)
+![325529438-c054cbb5-d38f-44d8-a74d-86e285dbc31d](https://github.com/Elamukilanguna/EXPERIMENT--04-INTERUPT-GENRATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR/assets/144870462/e592ff15-5ec7-4622-95db-f797091a5f33)
+
  
  
 ## Result :
