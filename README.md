@@ -1,8 +1,8 @@
 ###  DATE: 09.04.2024
 
-###  NAME: ALFRED A B
-###  ROLL NO : 212222110002
-###  DEPARTMENT: CSE(IOT)
+###  NAME: ELAMUKILAN.G
+###  ROLL NO : 212223040045
+###  DEPARTMENT: CSE
 
 
 # EXPERIMENT--04-INTERUPT-GENRATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
@@ -118,7 +118,7 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
   
 
 ## STM 32 CUBE PROGRAM :
-```python
+```
 #include "main.h"
 #include "stdio.h"
 #if defined(__ICCARM__) || defined(__ARMCC_VERSION)
